@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Microsoft YaHei';
+        }
+        .container {
+            padding: 30px;
+            text-align: center;
+        }
+        .kfc-logo {
+            width: 200px;
+            margin: 20px auto;
+            animation: pulse 2s infinite;
+        }
+        .love-text {
+            color: #d32f2f;
+            font-size: 24px;
+            margin: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .coupon-btn {
+            background: #FFD700;
+            padding: 15px 30px;
+            border-radius: 30px;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .coupon-btn:hover {
+            transform: scale(1.1);
+            background: #FFC400;
+        }
+        .heart {
+            position: absolute;
+            width: 20px;
+            opacity: 0;
+            animation: heartFly 3s linear infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        @keyframes heartFly {
+            0% { opacity: 0; transform: translateY(0); }
+            20% { opacity: 1; }
+            100% { opacity: 0; transform: translateY(-100px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://s3.bmp.ovh/imgs/2025/03/13/af6f942b35822123.jpg" 
+             class="kfc-logo" 
+             alt="KFC Love Logo">
+        
+        <p class="love-text">💖 亲爱的，今天是我们的疯狂星期四<br>
+        想和你共享酥脆的时光<br>
+        炸鸡会凉，但爱意恒温 🌹</p>
+
+        <p class="love-text">🥂 人生进度条加载到第N年<br>
+        最惊喜的彩蛋是与你相遇<br>
+        V我50开启双人甜蜜副本 ▼</p>
+
+        <button class="coupon-btn" 
+                onclick="window.open('https://www.kfc.com.cn/coupon/','_blank')">
+            🎁 点击领取爱情兑换券
+        </button>
+    </div>
+
+    <!-- 动态爱心特效 -->
+    <script>
+        function createHearts() {
+            const heart = document.createElement('img');
+            heart.src = 'https://www.freeiconspng.com/uploads/heart-png-15.png';
+            heart.className = 'heart';
+            heart.style.left = Math.random() * 100 + '%';
+            document.body.appendChild(heart);
+            
+            setTimeout(() => heart.remove(), 3000);
+        }
+        setInterval(createHearts, 300);
+    </script>
+</body>
+</html>
